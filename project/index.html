@@ -48,7 +48,7 @@
             }
             const strugglingStudents = student.filter(s => s.grades.some(g => g < 40) && s.grades.some(g => g > 49));
 
-            const Grades = strugglingStudents.map(s => s.grades + 5);
+            const grades = strugglingStudents.map(s => s.grades + 5);
 
             let upgradedAverage = 0; 
                         if (strugglingStudents.length > 0) { 
