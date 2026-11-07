@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>نظام إدارة وتحليل نتائج الطلاب</title>
+    </head>
+    <body>
+        <script>
+            const student=[
+                { id:1200 , name:"Omer",grades:[85,90,75] ,attendance:90 },
+                { id:1300 , name:"Khalid",grades:[45,40,30] ,attendance:30 },
+                { id:1400 , name:"Ahmde",grades:[46,80,30] ,attendance:50 },
+                { id:1500 , name:"Yazan",grades:[90,70,80] ,attendance:80 }
+            ];
+
+            const total = student.reduce((sum, grade) => sum + grade, 0);
+            const average = total / 3;
+              console.log("متوسط الدرجات: " , average);
+
+            function StudentAssessment(average){
+                if (average >= 90){
+                    return "A";
+                }
+                else if(average >= 80){
+                    return "B";
+                }
+                else if(average >= 70){
+                    return "C";
+                }
+                else if(average >= 60){
+                    return "D";
+                }
+                else if(average >= 50){
+                    return "E";
+                }
+                else {
+                    return "F";
+                }
+            }
+            function FinalResult(average, attendance){
+                if (average >= 50 && attendance >= 75){
+                    return "ناجح";
+                }
+                else {
+                    return "يحتاج مراجعه";
+                }
+            }
+            const strugglingStudents = student.filter(s => s.grades.some(g => g < 40) && s.grades.some(g => g > 49));
+
+            const Grades = strugglingStudents.map(s => s.grades + 5);
+
+            let upgradedAverage = 0; 
+                        if (strugglingStudents.length > 0) { 
+                            upgradedAverage = total / strugglingStudents.length; 
+                        } 
+                  
+
+
+
+
+
+
+
+        </script>
+    </body>
+</html>
